@@ -65,7 +65,7 @@
     <Compile Include="CodeFolderHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Manifest.addin.xml" />
+    <EmbeddedResource Include="Properties\DavesAddin.addin.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
