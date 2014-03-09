@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Addin namespace="DavesAddin" id="DavesAddin" name="DavesAddin" author="davehumphreys" copyright="davehumphreys" description="DavesAddin" category="IDE extensions" version="1.0" flags="None">
-		<Runtime>
+<Addin name="Daves Addins"
+		id="DavesAddin" 
+       namespace="DavesAddin"
+       author="davehumphreys" 
+       copyright="davehumphreys" 
+       description="DavesAddin" 
+       category="IDE extensions"
+       version="1.0" 
+       flags="None">
+		<Runtime>	
 		<Import assembly="DavesAddin.dll" />
 	</Runtime>
     <Dependencies>
             <Addin id="Core" version="4.0"/>
             <Addin id="Ide" version="4.0"/>
-            <Addin id="DesignerSupport" version="2.4"/>
+            <Addin id="DesignerSupport" version="4.0"/>
             <Addin id="SourceEditor2" version="4.0"/>
+            <Addin id="Refactoring" version="4.0"/>
     </Dependencies>
 	<Extension path = "/MonoDevelop/Ide/Commands/Edit">  
         <Command id = "DavesAddin.CodeFoldingCommands.CollapseToDefs"  
