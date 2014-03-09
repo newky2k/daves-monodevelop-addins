@@ -22,20 +22,7 @@
                  shortcut = "⌃M ⌃O"
                   defaultHandler = "DavesAddin.CodeFoldingHandler" />  
     </Extension>  
-<!--	<Extension path = "/MonoDevelop/Ide/Commands/Project">  
-    <Command id = "DavesAddin.VersionChangerCommands.UpdateVersions"  
-             _label = "Update Version"  
-             _description = "Change the version numbers"
-             defaultHandler = "DavesAddin.VersionChangerHandler" />  
-    </Extension>  -->
-
     <Extension path = "/MonoDevelop/Ide/MainMenu/Edit/Folding">  
         <CommandItem id="DavesAddin.CodeFoldingCommands.CollapseToDefs" />  
     </Extension>  
-
-<!--	<Extension path = "/MonoDevelop/Ide/ContextMenu/ProjectPad">
-	 <Condition id="ItemType" value="Solution">
-		<CommandItem id ="DavesAddin.VersionChangerCommands.UpdateVersions" />
-	</Condition>
-	</Extension>-->
 </Addin>
