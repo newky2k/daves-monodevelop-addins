@@ -1,0 +1,12 @@
+﻿<AddinProject appVersion="1.0">
+	<Project platforms="Mac Linux">
+		<AddinFile>DavesAddin/bin/Debug/DavesAddin.dll</AddinFile>
+		<BuildFile>DavesAddin.sln</BuildFile>
+		<BuildConfiguration>Debug</BuildConfiguration>
+	</Project>
+	<Project platforms="Win32">
+		<AddinFile>DavesAddin/bin/Debug/DavesAddin.dll</AddinFile>
+		<BuildFile>DavesAddin.sln</BuildFile>
+		<BuildConfiguration>Debug</BuildConfiguration>
+	</Project>
+</AddinProject>
