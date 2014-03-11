@@ -2,13 +2,13 @@
 <Addin name="Daves Addins"
 		id="DavesAddin" 
        namespace="DavesAddin"
-       author="davehumphreys" 
-       copyright="davehumphreys" 
-       description="DavesAddin" 
+       author="Dave Humphreys" 
+       copyright="Dave Humphreys" 
+       description="Daves Addin.  Extensions for MonoDevelop to improve productivity.  Currently just Edit > Folding > Collapse to Definitions" 
        category="IDE extensions"
-       version="1.0" 
+       version="1.0.1" 
        flags="None">
-		<Runtime>	
+	<Runtime>	
 		<Import assembly="DavesAddin.dll" />
 	</Runtime>
     <Dependencies>
@@ -16,7 +16,6 @@
 		<Addin id="::MonoDevelop.Ide" version="4.0" />
 		<Addin id="::MonoDevelop.DesignerSupport" version="4.0" />
 		<Addin id="::MonoDevelop.SourceEditor2" version="4.0" />
-        <Addin id="Refactoring" version="4.0"/>
     </Dependencies>
 	<Extension path = "/MonoDevelop/Ide/Commands/Edit">  
         <Command id = "DavesAddin.CodeFoldingCommands.CollapseToDefs"  
