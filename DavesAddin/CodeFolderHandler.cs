@@ -27,9 +27,11 @@ namespace DavesAddin
 				{
 					if (segment.FoldingType == FoldingType.TypeDefinition)
 					{
-						segment.IsFolded = true;
+						segment.IsFolded = false;
 					}
-					if (segment.FoldingType == FoldingType.TypeMember || segment.FoldingType == FoldingType.Comment)
+					if (segment.FoldingType == FoldingType.TypeMember
+					    || segment.FoldingType == FoldingType.Comment
+					    || segment.FoldingType == FoldingType.Region)
 						segment.IsFolded = true;
 				}
 
