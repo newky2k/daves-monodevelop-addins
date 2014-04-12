@@ -2,6 +2,8 @@
 using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
 using Mono.TextEditor;
+using DavesAddin.Processors;
+using System.Diagnostics;
 
 namespace DavesAddin
 {
@@ -20,7 +22,14 @@ namespace DavesAddin
 			if (item != null)
 			{
 				//
+				var results = SolutionProcessor.BuildVersions (item);
+
+				Debug.WriteLine ("");
+
+
+
 			}
+				
 
 		}
 
