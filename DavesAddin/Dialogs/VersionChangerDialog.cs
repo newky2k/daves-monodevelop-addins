@@ -1,4 +1,6 @@
 ﻿using System;
+using DavesAddin.Data;
+using MonoDevelop.Projects;
 
 namespace DavesAddin.Dialogs
 {
@@ -7,6 +9,12 @@ namespace DavesAddin.Dialogs
 		public VersionChangerDialog ()
 		{
 			this.Build ();
+		}
+
+		public VersionChangerDialog (SolutionVersion VersionDate, Solution MainSolution) 
+			: this ()
+		{
+			
 		}
 	}
 }
