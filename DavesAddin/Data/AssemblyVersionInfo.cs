@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace DavesAddin.Data
 {
@@ -32,8 +33,18 @@ namespace DavesAddin.Data
 		}
 
 		public Version FileVersion {
-			get { return mFileVersion; }
-			set{ mFileVersion = value; }
+			get
+			{
+				if (mFileVersion == null)
+				{
+					return AssemblyVersion;
+				}
+				return mFileVersion; 
+			}
+			set
+			{ 
+				mFileVersion = value; 
+			}
 		}
 
 		#endregion
@@ -108,7 +119,53 @@ namespace DavesAddin.Data
 
 		public void Update ()
 		{
+			string[] file = File.ReadAllLines (mFilePath);
+			var newLines = new StringBuilder ();
 
+			//String line;
+			foreach (string aLine in file)
+			{
+				//strip out white spaces
+				var line = aLine;
+
+				String newLine = line;
+				if (!line.StartsWith ("//") && !line.StartsWith ("'"))
+				{
+					if (line.Contains ("assembly:"))
+					{
+						line = line.Replace (" ", "");
+					}
+					string searchText = "AssemblyVersion(\"";
+					string searchText2 = "AssemblyFileVersion(\"";
+
+					if (line.Contains (searchText))
+					{
+						int locationStart = line.IndexOf (searchText);
+						string firstBit = line.Substring (0, (locationStart + searchText.Length));
+						string remaining = line.Substring ((locationStart + searchText.Length));
+						int locationEnd = remaining.IndexOf ("\"");
+						string end = remaining.Substring (locationEnd);
+
+						//MessageBox.Show(String.Format("{0}{1}{2}", firstBit, newVersion.ToString(), end));
+						newLine = String.Format ("{0}{1}{2}", firstBit, AssemblyVersion.ToString (), end);
+					}
+
+					if (line.Contains (searchText2))
+					{
+						int locationStart = line.IndexOf (searchText2);
+						string firstBit = line.Substring (0, (locationStart + searchText2.Length));
+						string remaining = line.Substring ((locationStart + searchText2.Length));
+						int locationEnd = remaining.IndexOf ("\"");
+						string end = remaining.Substring (locationEnd);
+
+						newLine = String.Format ("{0}{1}{2}", firstBit, FileVersion.ToString (), end);
+					}
+				}
+
+				newLines.Append (newLine + "\r\n");
+			}
+
+			File.WriteAllText (mFilePath, newLines.ToString ());
 		}
 	}
 }
