@@ -4,6 +4,18 @@ namespace DavesAddin.Dialogs
 {
 	public partial class VersionChangerDialog
 	{
+		private global::Gtk.VBox vbox3;
+		private global::Gtk.Frame frame4;
+		private global::Gtk.Alignment GtkAlignment3;
+		private global::Gtk.ScrolledWindow GtkScrolledWindow;
+		private global::Gtk.TreeView lstProjects;
+		private global::Gtk.Label GtkLabel3;
+		private global::Gtk.Frame frame3;
+		private global::Gtk.Alignment GtkAlignment2;
+		private global::Gtk.Fixed frmFields;
+		private global::Gtk.Entry edtSolVersion;
+		private global::Gtk.Label label2;
+		private global::Gtk.Label GtkLabel2;
 		private global::Gtk.Button buttonCancel;
 		private global::Gtk.Button buttonOk;
 
@@ -18,12 +30,91 @@ namespace DavesAddin.Dialogs
 			global::Gtk.VBox w1 = this.VBox;
 			w1.Name = "dialog1_VBox";
 			w1.BorderWidth = ((uint)(2));
+			// Container child dialog1_VBox.Gtk.Box+BoxChild
+			this.vbox3 = new global::Gtk.VBox ();
+			this.vbox3.Name = "vbox3";
+			this.vbox3.Spacing = 6;
+			// Container child vbox3.Gtk.Box+BoxChild
+			this.frame4 = new global::Gtk.Frame ();
+			this.frame4.Name = "frame4";
+			this.frame4.ShadowType = ((global::Gtk.ShadowType)(0));
+			// Container child frame4.Gtk.Container+ContainerChild
+			this.GtkAlignment3 = new global::Gtk.Alignment (0F, 0F, 1F, 1F);
+			this.GtkAlignment3.Name = "GtkAlignment3";
+			this.GtkAlignment3.LeftPadding = ((uint)(12));
+			// Container child GtkAlignment3.Gtk.Container+ContainerChild
+			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
+			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+			this.lstProjects = new global::Gtk.TreeView ();
+			this.lstProjects.CanFocus = true;
+			this.lstProjects.Name = "lstProjects";
+			this.GtkScrolledWindow.Add (this.lstProjects);
+			this.GtkAlignment3.Add (this.GtkScrolledWindow);
+			this.frame4.Add (this.GtkAlignment3);
+			this.GtkLabel3 = new global::Gtk.Label ();
+			this.GtkLabel3.Name = "GtkLabel3";
+			this.GtkLabel3.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>Projects</b>");
+			this.GtkLabel3.UseMarkup = true;
+			this.frame4.LabelWidget = this.GtkLabel3;
+			this.vbox3.Add (this.frame4);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.frame4]));
+			w5.Position = 0;
+			// Container child vbox3.Gtk.Box+BoxChild
+			this.frame3 = new global::Gtk.Frame ();
+			this.frame3.HeightRequest = 150;
+			this.frame3.Name = "frame3";
+			this.frame3.ShadowType = ((global::Gtk.ShadowType)(0));
+			// Container child frame3.Gtk.Container+ContainerChild
+			this.GtkAlignment2 = new global::Gtk.Alignment (0F, 0F, 1F, 1F);
+			this.GtkAlignment2.Name = "GtkAlignment2";
+			this.GtkAlignment2.LeftPadding = ((uint)(12));
+			// Container child GtkAlignment2.Gtk.Container+ContainerChild
+			this.frmFields = new global::Gtk.Fixed ();
+			this.frmFields.HeightRequest = 150;
+			this.frmFields.Name = "frmFields";
+			this.frmFields.HasWindow = false;
+			// Container child frmFields.Gtk.Fixed+FixedChild
+			this.edtSolVersion = new global::Gtk.Entry ();
+			this.edtSolVersion.WidthRequest = 150;
+			this.edtSolVersion.CanFocus = true;
+			this.edtSolVersion.Name = "edtSolVersion";
+			this.edtSolVersion.IsEditable = true;
+			this.edtSolVersion.InvisibleChar = '●';
+			this.frmFields.Add (this.edtSolVersion);
+			global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtSolVersion]));
+			w6.X = 455;
+			w6.Y = 10;
+			// Container child frmFields.Gtk.Fixed+FixedChild
+			this.label2 = new global::Gtk.Label ();
+			this.label2.Name = "label2";
+			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Main Version");
+			this.frmFields.Add (this.label2);
+			global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.label2]));
+			w7.X = 365;
+			w7.Y = 15;
+			this.GtkAlignment2.Add (this.frmFields);
+			this.frame3.Add (this.GtkAlignment2);
+			this.GtkLabel2 = new global::Gtk.Label ();
+			this.GtkLabel2.Name = "GtkLabel2";
+			this.GtkLabel2.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>Version Information</b>");
+			this.GtkLabel2.UseMarkup = true;
+			this.frame3.LabelWidget = this.GtkLabel2;
+			this.vbox3.Add (this.frame3);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.frame3]));
+			w10.Position = 1;
+			w10.Expand = false;
+			w10.Fill = false;
+			w1.Add (this.vbox3);
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(w1 [this.vbox3]));
+			w11.Position = 0;
 			// Internal child DavesAddin.Dialogs.VersionChangerDialog.ActionArea
-			global::Gtk.HButtonBox w2 = this.ActionArea;
-			w2.Name = "dialog1_ActionArea";
-			w2.Spacing = 10;
-			w2.BorderWidth = ((uint)(5));
-			w2.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
+			global::Gtk.HButtonBox w12 = this.ActionArea;
+			w12.Name = "dialog1_ActionArea";
+			w12.Spacing = 10;
+			w12.BorderWidth = ((uint)(5));
+			w12.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonCancel = new global::Gtk.Button ();
 			this.buttonCancel.CanDefault = true;
@@ -33,9 +124,9 @@ namespace DavesAddin.Dialogs
 			this.buttonCancel.UseUnderline = true;
 			this.buttonCancel.Label = "gtk-cancel";
 			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w3 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w2 [this.buttonCancel]));
-			w3.Expand = false;
-			w3.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w13 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w12 [this.buttonCancel]));
+			w13.Expand = false;
+			w13.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonOk = new global::Gtk.Button ();
 			this.buttonOk.CanDefault = true;
@@ -45,15 +136,15 @@ namespace DavesAddin.Dialogs
 			this.buttonOk.UseUnderline = true;
 			this.buttonOk.Label = "gtk-ok";
 			this.AddActionWidget (this.buttonOk, -5);
-			global::Gtk.ButtonBox.ButtonBoxChild w4 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w2 [this.buttonOk]));
-			w4.Position = 1;
-			w4.Expand = false;
-			w4.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w14 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w12 [this.buttonOk]));
+			w14.Position = 1;
+			w14.Expand = false;
+			w14.Fill = false;
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 400;
-			this.DefaultHeight = 300;
+			this.DefaultWidth = 630;
+			this.DefaultHeight = 462;
 			this.Show ();
 		}
 	}

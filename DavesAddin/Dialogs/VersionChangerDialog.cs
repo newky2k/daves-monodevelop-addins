@@ -11,10 +11,12 @@ namespace DavesAddin.Dialogs
 			this.Build ();
 		}
 
-		public VersionChangerDialog (SolutionVersion VersionDate, Solution MainSolution) 
+		public VersionChangerDialog (SolutionVersion VersionData, Solution MainSolution) 
 			: this ()
 		{
-			
+			edtSolVersion.Text = VersionData.Version.ToString ();
+
+
 		}
 	}
 }
