@@ -100,14 +100,28 @@ namespace DavesAddin.Data
 			try
 			{
 				Dictionary<string, object> dict = (Dictionary<string, object>)Plist.readPlist (FilePath);
+				bool fileChanged = false;
 
 				if (!String.IsNullOrWhiteSpace (mVersionOne))
+				{
 					dict ["CFBundleShortVersionString"] = mVersionOne;
 
+					fileChanged = true;
+				}
+					
+
 				if (!String.IsNullOrWhiteSpace (mVersionTwo))
+				{
 					dict ["CFBundleVersion"] = mVersionTwo;
 
-				Plist.writeXml (dict, FilePath);
+					fileChanged = true;
+				}
+
+				if (fileChanged)
+				{
+					Plist.writeXml (dict, FilePath);
+				}
+
 
 			}
 			catch
@@ -155,10 +169,16 @@ namespace DavesAddin.Data
 
 		#endregion
 
+		#region Xonstructors
+
 		public AndroidAppVersion ()
 		{
 			ApplicationType = AppType.Android;
 		}
+
+		#endregion
+
+		#region Methods
 
 		public string GetVersion (String Key)
 		{
@@ -186,8 +206,47 @@ namespace DavesAddin.Data
 
 		public override void Update ()
 		{
+			var xmlDoc = new XmlDocument ();
+
+			xmlDoc.Load (FilePath);
+
+			bool fileChanged = false;
+
+			foreach (XmlNode aChild in xmlDoc.ChildNodes)
+			{
+				if (aChild.Name.ToLower ().Equals ("manifest"))
+				{
+					//do something here
+					if (!String.IsNullOrWhiteSpace (mVersionOne))
+					{
+						var buildAtr = aChild.Attributes ["android:versionCode"];
+
+						buildAtr.Value = mVersionOne;
+
+						fileChanged = true;
+					}
+
+
+					if (!String.IsNullOrWhiteSpace (mVersionTwo))
+					{
+						var versionAtr = aChild.Attributes ["android:versionName"];
+
+						versionAtr.Value = mVersionTwo;
+
+						fileChanged = true;
+					}
+
+				}
+			}
+
+			if (fileChanged)
+			{
+				xmlDoc.Save (FilePath);
+			}
 
 		}
+
+		#endregion
 	}
 }
 

@@ -171,6 +171,22 @@ namespace DavesAddin.Processors
 							aProj.AppVerisonInfo.Update ();
 						}
 					}
+
+					if (AdditionaVersions.ContainsKey ("android"))
+					{
+						var build = AdditionaVersions ["android"];
+
+						var iOSItems = from e in Data.Projects
+						               where e.AppVerisonInfo is AndroidAppVersion
+						               select e;
+
+						foreach (var aProj in iOSItems.ToList())
+						{
+							aProj.AppVerisonInfo.VersionOne = build;
+							aProj.AppVerisonInfo.VersionTwo = MainVersion.ToString ();
+							aProj.AppVerisonInfo.Update ();
+						}
+					}
 				}
 			}
 
