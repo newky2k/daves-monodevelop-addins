@@ -4,6 +4,7 @@ using MonoDevelop.Projects;
 using MonoDevelop.Core.ProgressMonitoring;
 using System.Threading.Tasks;
 using DavesAddin.Processors;
+using System.Collections.Generic;
 
 namespace DavesAddin.Dialogs
 {
@@ -42,7 +43,19 @@ namespace DavesAddin.Dialogs
 
 			btnOk.Clicked += (object sender, EventArgs e) => {
 
-				SolutionProcessor.UpdateVersions (edtSolVersion.Text, null, mVersionData, mSolution);
+				var aDict = new Dictionary<String,String> ();
+
+				if (edtAndroidBuild.Sensitive)
+				{
+					aDict.Add ("android", edtAndroidBuild.Text);
+				}
+
+				if (edtiOSShort.Sensitive)
+				{
+					aDict.Add ("ios", edtiOSShort.Text);
+				}
+
+				SolutionProcessor.UpdateVersions (edtSolVersion.Text, aDict, mVersionData, mSolution);
 
 			};
 		}

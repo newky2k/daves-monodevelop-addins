@@ -14,16 +14,25 @@ namespace DavesAddin.Data
 
 	public abstract class AppVersion
 	{
+		#region Fields
+
+		protected string mVersionOne;
+		protected string mVersionTwo;
+
+		#endregion
+
 		public AppType ApplicationType {
 			get;
 			set;
 		}
 
-		public abstract string VersionOne { get; }
+		public abstract string VersionOne { get; set; }
 
-		public abstract string VersionTwo { get; }
+		public abstract string VersionTwo { get; set; }
 
 		public abstract String FilePath { get; set; }
+
+		public abstract void Update ();
 	}
 
 	public class iOSAppVersion : AppVersion
@@ -35,17 +44,33 @@ namespace DavesAddin.Data
 
 		public override String FilePath { get; set; }
 
+		/// <summary>
+		/// Short version
+		/// </summary>
+		/// <value>The version one.</value>
 		public override string VersionOne {
 			get
 			{
 				return GetVersion ("CFBundleShortVersionString");
 			}
+			set
+			{
+				mVersionOne = value;
+			}
 		}
 
+		/// <summary>
+		/// Bundle Version
+		/// </summary>
+		/// <value>The version two.</value>
 		public override string VersionTwo {
 			get
 			{
 				return GetVersion ("CFBundleVersion");
+			}
+			set
+			{
+				mVersionTwo = value;
 			}
 		}
 
@@ -69,6 +94,27 @@ namespace DavesAddin.Data
 		{
 			return CurrentVersion.ToString (2);
 		}
+
+		public override void Update ()
+		{
+			try
+			{
+				Dictionary<string, object> dict = (Dictionary<string, object>)Plist.readPlist (FilePath);
+
+				if (!String.IsNullOrWhiteSpace (mVersionOne))
+					dict ["CFBundleShortVersionString"] = mVersionOne;
+
+				if (!String.IsNullOrWhiteSpace (mVersionTwo))
+					dict ["CFBundleVersion"] = mVersionTwo;
+
+				Plist.writeXml (dict, FilePath);
+
+			}
+			catch
+			{
+
+			}
+		}
 	}
 
 	public class AndroidAppVersion : AppVersion
@@ -77,17 +123,33 @@ namespace DavesAddin.Data
 
 		public override String FilePath { get; set; }
 
+		/// <summary>
+		/// Build Version
+		/// </summary>
+		/// <value>The version one.</value>
 		public override string VersionOne {
 			get
 			{
 				return GetVersion ("android:versionCode");
 			}
+			set
+			{
+				mVersionOne = value;
+			}
 		}
 
+		/// <summary>
+		/// Verion
+		/// </summary>
+		/// <value>The version two.</value>
 		public override string VersionTwo {
 			get
 			{
 				return GetVersion ("android:versionName");
+			}
+			set
+			{
+				mVersionTwo = value;
 			}
 		}
 
@@ -120,6 +182,11 @@ namespace DavesAddin.Data
 		public static string ToBuild (Version CurrentVersion)
 		{
 			return CurrentVersion.ToString ().Replace (".", "");
+		}
+
+		public override void Update ()
+		{
+
 		}
 	}
 }

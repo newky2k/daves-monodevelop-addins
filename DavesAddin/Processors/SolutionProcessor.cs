@@ -153,7 +153,28 @@ namespace DavesAddin.Processors
 					aProj.AssemblyVersionInfo.Update ();
 				}
 
+
+				if (AdditionaVersions != null)
+				{
+					if (AdditionaVersions.ContainsKey ("ios"))
+					{
+						var shortVersion = AdditionaVersions ["ios"];
+
+						var iOSItems = from e in Data.Projects
+						               where e.AppVerisonInfo is iOSAppVersion
+						               select e;
+
+						foreach (var aProj in iOSItems.ToList())
+						{
+							aProj.AppVerisonInfo.VersionOne = shortVersion;
+							aProj.AppVerisonInfo.VersionTwo = MainVersion.ToString ();
+							aProj.AppVerisonInfo.Update ();
+						}
+					}
+				}
 			}
+
+
 
 		}
 	}

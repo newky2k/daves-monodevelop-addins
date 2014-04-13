@@ -60,6 +60,8 @@ namespace DavesAddin.Data
 
 		#endregion
 
+		#region Methods
+
 		private void Parse ()
 		{
 			var version = String.Empty;
@@ -167,6 +169,8 @@ namespace DavesAddin.Data
 
 			File.WriteAllText (mFilePath, newLines.ToString ());
 		}
+
+		#endregion
 	}
 }
 
