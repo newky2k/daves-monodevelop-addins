@@ -64,6 +64,11 @@ namespace DavesAddin.Data
 
 
 		}
+
+		public static string ToShortVersion (Version CurrentVersion)
+		{
+			return CurrentVersion.ToString (2);
+		}
 	}
 
 	public class AndroidAppVersion : AppVersion
@@ -110,6 +115,11 @@ namespace DavesAddin.Data
 				}
 			}
 			return string.Empty;
+		}
+
+		public static string ToBuild (Version CurrentVersion)
+		{
+			return CurrentVersion.ToString ().Replace (".", "");
 		}
 	}
 }
