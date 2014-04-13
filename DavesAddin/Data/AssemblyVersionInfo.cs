@@ -105,6 +105,11 @@ namespace DavesAddin.Data
 				this.AssemblyVersion = new Version ("0.0");
 			}
 		}
+
+		public void Update ()
+		{
+
+		}
 	}
 }
 

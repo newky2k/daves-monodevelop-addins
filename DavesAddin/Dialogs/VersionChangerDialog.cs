@@ -2,11 +2,16 @@
 using DavesAddin.Data;
 using MonoDevelop.Projects;
 using MonoDevelop.Core.ProgressMonitoring;
+using System.Threading.Tasks;
+using DavesAddin.Processors;
 
 namespace DavesAddin.Dialogs
 {
 	public partial class VersionChangerDialog : Gtk.Dialog
 	{
+		private SolutionVersion mVersionData;
+		private Solution mSolution;
+
 		public VersionChangerDialog ()
 		{
 			this.Build ();
@@ -15,6 +20,9 @@ namespace DavesAddin.Dialogs
 		public VersionChangerDialog (SolutionVersion VersionData, Solution MainSolution) 
 			: this ()
 		{
+			mVersionData = VersionData;
+			mSolution = MainSolution;
+
 			edtSolVersion.Text = VersionData.Version.ToString ();
 
 			if (VersionData.HasIOSProjects)
@@ -34,10 +42,8 @@ namespace DavesAddin.Dialogs
 
 			btnOk.Clicked += (object sender, EventArgs e) => {
 
-				MainSolution.Version = edtSolVersion.Text;
+				SolutionProcessor.UpdateVersions (edtSolVersion.Text, null, mVersionData, mSolution);
 
-
-				MainSolution.Save (new NullProgressMonitor ());
 			};
 		}
 	}

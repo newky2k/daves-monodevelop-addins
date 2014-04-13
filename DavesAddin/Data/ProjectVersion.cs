@@ -1,4 +1,5 @@
 ﻿using System;
+using MonoDevelop.Projects;
 
 namespace DavesAddin.Data
 {
@@ -17,15 +18,6 @@ namespace DavesAddin.Data
 	/// </summary>
 	public class ProjectVersion
 	{
-		#region Fields
-
-		private bool m_Update = true;
-		private String m_Name;
-		private String m_Path;
-		private Version m_Version;
-
-		#endregion
-
 		#region Properties
 
 		public ProjectType ProjType {
@@ -34,22 +26,18 @@ namespace DavesAddin.Data
 		}
 
 		/// <summary>
+		/// Gets or sets the source project.
+		/// </summary>
+		/// <value>The source project.</value>
+		public Project SourceProject { get; set; }
+
+		/// <summary>
 		/// Gets or sets a value indicating whether it should be updated
 		/// </summary>
 		/// <value>
 		///   <c>true</c> if [update]; otherwise, <c>false</c>.
 		/// </value>
-		public bool Update {
-			get
-			{
-				return m_Update;
-			}
-
-			set
-			{
-				m_Update = value;
-			}
-		}
+		public bool Update { get; set; }
 
 		/// <summary>
 		/// Gets or sets the name.
@@ -60,33 +48,14 @@ namespace DavesAddin.Data
 		public String Name {
 			get
 			{
-				return m_Name;
-			}
-
-			set
-			{
-				m_Name = value;
+				return SourceProject.Name;
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the path.
+		/// Gets or sets the assembly version info.
 		/// </summary>
-		/// <value>
-		/// The path.
-		/// </value>
-		public String Path {
-			get
-			{
-				return m_Path;
-			}
-
-			set
-			{
-				m_Path = value;
-			}
-		}
-
+		/// <value>The assembly version info.</value>
 		public AssemblyVersionInfo AssemblyVersionInfo {
 			get;
 			set;
