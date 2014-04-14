@@ -4,7 +4,7 @@
        namespace="DavesAddin"
        author="Dave Humphreys" 
        copyright="Dave Humphreys" 
-       description="Daves Addin.  Extensions for MonoDevelop/Xamarin Studio to improve productivity.  Currently just Edit/Folding/Collapse to Definitions" 
+       description="Daves Addin.  Extensions for MonoDevelop/Xamarin Studio to improve productivity. Currently just Edit/Folding/Collapse to Definitions" 
        category="IDE extensions"
        version="1.0.2" 
        flags="None">
