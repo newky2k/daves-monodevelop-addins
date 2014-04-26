@@ -7,6 +7,7 @@ namespace DavesAddin.Data
 {
 	public enum AppType
 	{
+		Cocoa,
 		iOS,
 		Android,
 		Mac,
@@ -35,11 +36,11 @@ namespace DavesAddin.Data
 		public abstract void Update ();
 	}
 
-	public class iOSAppVersion : AppVersion
+	public class CocoaAppVersion : AppVersion
 	{
-		public iOSAppVersion ()
+		public CocoaAppVersion ()
 		{
-			ApplicationType = AppType.iOS;
+			ApplicationType = AppType.Cocoa;
 		}
 
 		public override String FilePath { get; set; }
@@ -92,7 +93,12 @@ namespace DavesAddin.Data
 
 		public static string ToShortVersion (Version CurrentVersion)
 		{
-			return CurrentVersion.ToString (2);
+			var fir = CurrentVersion.Major.ToString ();
+			var th = CurrentVersion.Minor.ToString ();
+			var ap = CurrentVersion.Build.ToString ();
+			var qa = CurrentVersion.Revision.ToString ("D2");
+
+			return String.Format ("{0}.{1}.{2}{3}", fir, th, ap, qa);
 		}
 
 		public override void Update ()
@@ -108,7 +114,7 @@ namespace DavesAddin.Data
 
 					fileChanged = true;
 				}
-					
+
 
 				if (!String.IsNullOrWhiteSpace (mVersionTwo))
 				{
@@ -128,6 +134,22 @@ namespace DavesAddin.Data
 			{
 
 			}
+		}
+	}
+
+	public class iOSAppVersion : CocoaAppVersion
+	{
+		public iOSAppVersion () : base ()
+		{
+			ApplicationType = AppType.iOS;
+		}
+	}
+
+	public class MacAppVersion : CocoaAppVersion
+	{
+		public MacAppVersion () : base ()
+		{
+			ApplicationType = AppType.Mac;
 		}
 	}
 
@@ -201,7 +223,12 @@ namespace DavesAddin.Data
 
 		public static string ToBuild (Version CurrentVersion)
 		{
-			return CurrentVersion.ToString ().Replace (".", "");
+			var fir = CurrentVersion.Major.ToString ();
+			var th = CurrentVersion.Minor.ToString ();
+			var ap = CurrentVersion.Build.ToString ("D2");
+			var qa = CurrentVersion.Revision.ToString ("D2");
+
+			return String.Format ("{0}{1}{2}{3}", fir, th, ap, qa);
 		}
 
 		public override void Update ()

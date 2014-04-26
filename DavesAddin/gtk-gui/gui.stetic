@@ -7,10 +7,13 @@
   <import>
     <widget-library name="../bin/Debug/DavesAddin.dll" internal="true" />
   </import>
-  <widget class="Gtk.Dialog" id="DavesAddin.Dialogs.VersionChangerDialog" design-size="646 462">
+  <widget class="Gtk.Dialog" id="DavesAddin.Dialogs.VersionChangerDialog" design-size="363 215">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">dialog1</property>
+    <property name="Title" translatable="yes">Version Changer</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="Modal">True</property>
+    <property name="Resizable">False</property>
+    <property name="AllowGrow">False</property>
     <property name="Buttons">2</property>
     <property name="HelpButton">False</property>
     <child internal-child="VBox">
@@ -21,46 +24,6 @@
           <widget class="Gtk.VBox" id="vbox3">
             <property name="MemberName" />
             <property name="Spacing">6</property>
-            <child>
-              <widget class="Gtk.Frame" id="frame4">
-                <property name="MemberName" />
-                <property name="ShadowType">None</property>
-                <child>
-                  <widget class="Gtk.Alignment" id="GtkAlignment3">
-                    <property name="MemberName" />
-                    <property name="Xalign">0</property>
-                    <property name="Yalign">0</property>
-                    <property name="LeftPadding">12</property>
-                    <child>
-                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
-                        <property name="MemberName" />
-                        <property name="ShadowType">In</property>
-                        <child>
-                          <widget class="Gtk.TreeView" id="lstProjects">
-                            <property name="MemberName" />
-                            <property name="ShowScrollbars">True</property>
-                          </widget>
-                        </child>
-                      </widget>
-                    </child>
-                  </widget>
-                </child>
-                <child>
-                  <widget class="Gtk.Label" id="GtkLabel3">
-                    <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">&lt;b&gt;Projects&lt;/b&gt;</property>
-                    <property name="UseMarkup">True</property>
-                  </widget>
-                  <packing>
-                    <property name="type">label_item</property>
-                  </packing>
-                </child>
-              </widget>
-              <packing>
-                <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-              </packing>
-            </child>
             <child>
               <widget class="Gtk.Frame" id="grpFields">
                 <property name="MemberName" />
@@ -83,9 +46,10 @@
                             <property name="CanFocus">True</property>
                             <property name="IsEditable">True</property>
                             <property name="InvisibleChar">●</property>
+                            <signal name="TextInserted" handler="OnEdtSolVersionTextInserted" />
                           </widget>
                           <packing>
-                            <property name="X">455</property>
+                            <property name="X">175</property>
                             <property name="Y">10</property>
                           </packing>
                         </child>
@@ -95,7 +59,7 @@
                             <property name="LabelProp" translatable="yes">Main Version</property>
                           </widget>
                           <packing>
-                            <property name="X">367</property>
+                            <property name="X">10</property>
                             <property name="Y">15</property>
                           </packing>
                         </child>
@@ -110,7 +74,7 @@
                             <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
-                            <property name="X">455</property>
+                            <property name="X">175</property>
                             <property name="Y">55</property>
                           </packing>
                         </child>
@@ -125,7 +89,7 @@
                             <property name="InvisibleChar">●</property>
                           </widget>
                           <packing>
-                            <property name="X">455</property>
+                            <property name="X">175</property>
                             <property name="Y">100</property>
                           </packing>
                         </child>
@@ -133,10 +97,10 @@
                           <widget class="Gtk.Label" id="lblIOS">
                             <property name="MemberName" />
                             <property name="Sensitive">False</property>
-                            <property name="LabelProp" translatable="yes">iOS Short Version</property>
+                            <property name="LabelProp" translatable="yes">iOS/Mac Short Version</property>
                           </widget>
                           <packing>
-                            <property name="X">342</property>
+                            <property name="X">10</property>
                             <property name="Y">60</property>
                           </packing>
                         </child>
@@ -148,7 +112,7 @@
                             <property name="Justify">Right</property>
                           </widget>
                           <packing>
-                            <property name="X">365</property>
+                            <property name="X">10</property>
                             <property name="Y">105</property>
                           </packing>
                         </child>
@@ -168,7 +132,7 @@
                 </child>
               </widget>
               <packing>
-                <property name="Position">1</property>
+                <property name="Position">0</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -178,6 +142,8 @@
           <packing>
             <property name="Position">0</property>
             <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>

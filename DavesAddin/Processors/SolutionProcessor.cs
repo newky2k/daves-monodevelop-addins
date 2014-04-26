@@ -102,6 +102,22 @@ namespace DavesAddin.Processors
 							}
 
 						}
+						else if (proj is MonoDevelop.MacDev.MacProject || proj is MonoDevelop.MonoMac.MonoMacProject)
+						{
+							var apVersion = new MacAppVersion ();
+
+							//need to load the plist!
+							var infoPlistPath = Path.Combine (directory, "Info.Plist");
+
+							if (File.Exists (infoPlistPath))
+							{
+								apVersion.FilePath = infoPlistPath;
+
+								// only set if the info.plist exists
+								newVersion.AppVerisonInfo = apVersion;
+								newVersion.ProjType = ProjectType.Mac;
+							}
+						}
 							
 						solVersion.Projects.Add (newVersion);
 					}
@@ -116,6 +132,13 @@ namespace DavesAddin.Processors
 			return solVersion;
 		}
 
+		/// <summary>
+		/// Updates the versions.
+		/// </summary>
+		/// <param name="MainVersion">Main version.</param>
+		/// <param name="AdditionaVersions">Additiona versions.</param>
+		/// <param name="Data">Data.</param>
+		/// <param name="MainSolution">Main solution.</param>
 		public static void UpdateVersions (String MainVersion, Dictionary<String,String> AdditionaVersions, SolutionVersion Data, Solution MainSolution)
 		{
 			var aProgess = new SimpleProgressMonitor ();
@@ -156,12 +179,13 @@ namespace DavesAddin.Processors
 
 				if (AdditionaVersions != null)
 				{
-					if (AdditionaVersions.ContainsKey ("ios"))
+					if (AdditionaVersions.ContainsKey ("cocoa"))
 					{
-						var shortVersion = AdditionaVersions ["ios"];
+						var shortVersion = AdditionaVersions ["cocoa"];
 
+						//process iOS first
 						var iOSItems = from e in Data.Projects
-						               where e.AppVerisonInfo is iOSAppVersion
+						               where e.AppVerisonInfo is CocoaAppVersion
 						               select e;
 
 						foreach (var aProj in iOSItems.ToList())

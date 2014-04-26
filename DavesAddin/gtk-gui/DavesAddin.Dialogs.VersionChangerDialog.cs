@@ -5,11 +5,6 @@ namespace DavesAddin.Dialogs
 	public partial class VersionChangerDialog
 	{
 		private global::Gtk.VBox vbox3;
-		private global::Gtk.Frame frame4;
-		private global::Gtk.Alignment GtkAlignment3;
-		private global::Gtk.ScrolledWindow GtkScrolledWindow;
-		private global::Gtk.TreeView lstProjects;
-		private global::Gtk.Label GtkLabel3;
 		private global::Gtk.Frame grpFields;
 		private global::Gtk.Alignment GtkAlignment2;
 		private global::Gtk.Fixed frmFields;
@@ -28,8 +23,11 @@ namespace DavesAddin.Dialogs
 			global::Stetic.Gui.Initialize (this);
 			// Widget DavesAddin.Dialogs.VersionChangerDialog
 			this.Name = "DavesAddin.Dialogs.VersionChangerDialog";
-			this.Title = global::Mono.Unix.Catalog.GetString ("dialog1");
+			this.Title = global::Mono.Unix.Catalog.GetString ("Version Changer");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.Modal = true;
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Internal child DavesAddin.Dialogs.VersionChangerDialog.VBox
 			global::Gtk.VBox w1 = this.VBox;
 			w1.Name = "dialog1_VBox";
@@ -38,32 +36,6 @@ namespace DavesAddin.Dialogs
 			this.vbox3 = new global::Gtk.VBox ();
 			this.vbox3.Name = "vbox3";
 			this.vbox3.Spacing = 6;
-			// Container child vbox3.Gtk.Box+BoxChild
-			this.frame4 = new global::Gtk.Frame ();
-			this.frame4.Name = "frame4";
-			this.frame4.ShadowType = ((global::Gtk.ShadowType)(0));
-			// Container child frame4.Gtk.Container+ContainerChild
-			this.GtkAlignment3 = new global::Gtk.Alignment (0F, 0F, 1F, 1F);
-			this.GtkAlignment3.Name = "GtkAlignment3";
-			this.GtkAlignment3.LeftPadding = ((uint)(12));
-			// Container child GtkAlignment3.Gtk.Container+ContainerChild
-			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
-			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-			this.lstProjects = new global::Gtk.TreeView ();
-			this.lstProjects.Name = "lstProjects";
-			this.GtkScrolledWindow.Add (this.lstProjects);
-			this.GtkAlignment3.Add (this.GtkScrolledWindow);
-			this.frame4.Add (this.GtkAlignment3);
-			this.GtkLabel3 = new global::Gtk.Label ();
-			this.GtkLabel3.Name = "GtkLabel3";
-			this.GtkLabel3.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>Projects</b>");
-			this.GtkLabel3.UseMarkup = true;
-			this.frame4.LabelWidget = this.GtkLabel3;
-			this.vbox3.Add (this.frame4);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.frame4]));
-			w5.Position = 0;
 			// Container child vbox3.Gtk.Box+BoxChild
 			this.grpFields = new global::Gtk.Frame ();
 			this.grpFields.Name = "grpFields";
@@ -85,17 +57,17 @@ namespace DavesAddin.Dialogs
 			this.edtSolVersion.IsEditable = true;
 			this.edtSolVersion.InvisibleChar = '●';
 			this.frmFields.Add (this.edtSolVersion);
-			global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtSolVersion]));
-			w6.X = 455;
-			w6.Y = 10;
+			global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtSolVersion]));
+			w2.X = 175;
+			w2.Y = 10;
 			// Container child frmFields.Gtk.Fixed+FixedChild
 			this.label2 = new global::Gtk.Label ();
 			this.label2.Name = "label2";
 			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Main Version");
 			this.frmFields.Add (this.label2);
-			global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.label2]));
-			w7.X = 367;
-			w7.Y = 15;
+			global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.label2]));
+			w3.X = 10;
+			w3.Y = 15;
 			// Container child frmFields.Gtk.Fixed+FixedChild
 			this.edtiOSShort = new global::Gtk.Entry ();
 			this.edtiOSShort.TooltipMarkup = "iOS Short Version value";
@@ -106,9 +78,9 @@ namespace DavesAddin.Dialogs
 			this.edtiOSShort.IsEditable = true;
 			this.edtiOSShort.InvisibleChar = '●';
 			this.frmFields.Add (this.edtiOSShort);
-			global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtiOSShort]));
-			w8.X = 455;
-			w8.Y = 55;
+			global::Gtk.Fixed.FixedChild w4 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtiOSShort]));
+			w4.X = 175;
+			w4.Y = 55;
 			// Container child frmFields.Gtk.Fixed+FixedChild
 			this.edtAndroidBuild = new global::Gtk.Entry ();
 			this.edtAndroidBuild.TooltipMarkup = "Android Build Value";
@@ -119,18 +91,18 @@ namespace DavesAddin.Dialogs
 			this.edtAndroidBuild.IsEditable = true;
 			this.edtAndroidBuild.InvisibleChar = '●';
 			this.frmFields.Add (this.edtAndroidBuild);
-			global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtAndroidBuild]));
-			w9.X = 455;
-			w9.Y = 100;
+			global::Gtk.Fixed.FixedChild w5 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.edtAndroidBuild]));
+			w5.X = 175;
+			w5.Y = 100;
 			// Container child frmFields.Gtk.Fixed+FixedChild
 			this.lblIOS = new global::Gtk.Label ();
 			this.lblIOS.Sensitive = false;
 			this.lblIOS.Name = "lblIOS";
-			this.lblIOS.LabelProp = global::Mono.Unix.Catalog.GetString ("iOS Short Version");
+			this.lblIOS.LabelProp = global::Mono.Unix.Catalog.GetString ("iOS/Mac Short Version");
 			this.frmFields.Add (this.lblIOS);
-			global::Gtk.Fixed.FixedChild w10 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.lblIOS]));
-			w10.X = 342;
-			w10.Y = 60;
+			global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.lblIOS]));
+			w6.X = 10;
+			w6.Y = 60;
 			// Container child frmFields.Gtk.Fixed+FixedChild
 			this.lblAndroid = new global::Gtk.Label ();
 			this.lblAndroid.Sensitive = false;
@@ -138,9 +110,9 @@ namespace DavesAddin.Dialogs
 			this.lblAndroid.LabelProp = global::Mono.Unix.Catalog.GetString ("Android Build");
 			this.lblAndroid.Justify = ((global::Gtk.Justification)(1));
 			this.frmFields.Add (this.lblAndroid);
-			global::Gtk.Fixed.FixedChild w11 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.lblAndroid]));
-			w11.X = 365;
-			w11.Y = 105;
+			global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.frmFields [this.lblAndroid]));
+			w7.X = 10;
+			w7.Y = 105;
 			this.GtkAlignment2.Add (this.frmFields);
 			this.grpFields.Add (this.GtkAlignment2);
 			this.GtkLabel2 = new global::Gtk.Label ();
@@ -149,19 +121,21 @@ namespace DavesAddin.Dialogs
 			this.GtkLabel2.UseMarkup = true;
 			this.grpFields.LabelWidget = this.GtkLabel2;
 			this.vbox3.Add (this.grpFields);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.grpFields]));
-			w14.Position = 1;
-			w14.Expand = false;
-			w14.Fill = false;
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.grpFields]));
+			w10.Position = 0;
+			w10.Expand = false;
+			w10.Fill = false;
 			w1.Add (this.vbox3);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(w1 [this.vbox3]));
-			w15.Position = 0;
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(w1 [this.vbox3]));
+			w11.Position = 0;
+			w11.Expand = false;
+			w11.Fill = false;
 			// Internal child DavesAddin.Dialogs.VersionChangerDialog.ActionArea
-			global::Gtk.HButtonBox w16 = this.ActionArea;
-			w16.Name = "dialog1_ActionArea";
-			w16.Spacing = 10;
-			w16.BorderWidth = ((uint)(5));
-			w16.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
+			global::Gtk.HButtonBox w12 = this.ActionArea;
+			w12.Name = "dialog1_ActionArea";
+			w12.Spacing = 10;
+			w12.BorderWidth = ((uint)(5));
+			w12.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.buttonCancel = new global::Gtk.Button ();
 			this.buttonCancel.CanDefault = true;
@@ -171,9 +145,9 @@ namespace DavesAddin.Dialogs
 			this.buttonCancel.UseUnderline = true;
 			this.buttonCancel.Label = "gtk-cancel";
 			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w17 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w16 [this.buttonCancel]));
-			w17.Expand = false;
-			w17.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w13 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w12 [this.buttonCancel]));
+			w13.Expand = false;
+			w13.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
 			this.btnOk = new global::Gtk.Button ();
 			this.btnOk.CanDefault = true;
@@ -183,16 +157,17 @@ namespace DavesAddin.Dialogs
 			this.btnOk.UseUnderline = true;
 			this.btnOk.Label = global::Mono.Unix.Catalog.GetString ("_Update");
 			this.AddActionWidget (this.btnOk, -5);
-			global::Gtk.ButtonBox.ButtonBoxChild w18 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w16 [this.btnOk]));
-			w18.Position = 1;
-			w18.Expand = false;
-			w18.Fill = false;
+			global::Gtk.ButtonBox.ButtonBoxChild w14 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w12 [this.btnOk]));
+			w14.Position = 1;
+			w14.Expand = false;
+			w14.Fill = false;
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 646;
-			this.DefaultHeight = 462;
+			this.DefaultWidth = 363;
+			this.DefaultHeight = 215;
 			this.Show ();
+			this.edtSolVersion.TextInserted += new global::Gtk.TextInsertedHandler (this.OnEdtSolVersionTextInserted);
 		}
 	}
 }
