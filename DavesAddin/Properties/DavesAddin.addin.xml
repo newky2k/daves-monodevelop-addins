@@ -4,9 +4,10 @@
        namespace="DavesAddin"
        author="Dave Humphreys" 
        copyright="Dave Humphreys" 
-       description="Daves Addin.  Extensions for MonoDevelop to improve productivity.  Currently just Edit > Folding > Collapse to Definitions" 
+       description="Daves Addin.  Extensions for MonoDevelop/Xamarin Studio to improve productivity. Edit/Folding/Collapse to Definitions to collapse the source code(Ctrl-M-O). Solution > Update Versions to Update Soltuion, Project, AssemblyInfo, Android, iOS and Mac Application versions numbers in one go" 
        category="IDE extensions"
-       version="1.0.2" 
+       url= "https://github.com/newky2k/daves-monodevelop-addins"
+       version="1.1" 
        flags="None">
 	<Runtime>	
 		<Import assembly="DavesAddin.dll" />
@@ -23,8 +24,19 @@
                  _description = "Collapse to definitions"
                  shortcut = "⌃M ⌃O"
                   defaultHandler = "DavesAddin.CodeFoldingHandler" />  
+    </Extension> 
+	<Extension path = "/MonoDevelop/Ide/Commands/Project">  
+    <Command id = "DavesAddin.VersionChangerCommands.UpdateVersions"  
+             _label = "Update Version"  
+             _description = "Change the version numbers"
+             defaultHandler = "DavesAddin.VersionChangerHandler" />  
     </Extension>  
     <Extension path = "/MonoDevelop/Ide/MainMenu/Edit/Folding">  
         <CommandItem id="DavesAddin.CodeFoldingCommands.CollapseToDefs" />  
-    </Extension>  
+    </Extension>
+    <Extension path = "/MonoDevelop/Ide/ContextMenu/ProjectPad">
+		 <Condition id="ItemType" value="Solution">
+			<CommandItem id ="DavesAddin.VersionChangerCommands.UpdateVersions" />
+		</Condition>
+	</Extension>  
 </Addin>

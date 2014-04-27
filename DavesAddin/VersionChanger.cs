@@ -2,6 +2,9 @@
 using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
 using Mono.TextEditor;
+using DavesAddin.Processors;
+using System.Diagnostics;
+using DavesAddin.Dialogs;
 
 namespace DavesAddin
 {
@@ -20,7 +23,23 @@ namespace DavesAddin
 			if (item != null)
 			{
 				//
+				var results = SolutionProcessor.BuildVersions (item);
+
+
+				try
+				{
+					var dialog = new VersionChangerDialog (results, item);
+					MessageService.ShowCustomDialog (dialog);
+				}
+				catch (Exception ex)
+				{
+					MessageService.ShowException (ex);
+				}
+
+
+
 			}
+				
 
 		}
 
