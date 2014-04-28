@@ -62,9 +62,6 @@
     <Reference Include="MonoDevelop.IPhone, Version=4.0.0.0, Culture=neutral">
       <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/MonoDevelop.IPhone/MonoDevelop.IPhone.dll</Package>
     </Reference>
-    <Reference Include="MonoDevelop.MacDev, Version=4.0.0.0, Culture=neutral">
-      <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/MonoDevelop.MacDev/MonoDevelop.MacDev.dll</Package>
-    </Reference>
     <Reference Include="MonoDevelop.MonoDroid, Version=4.0.0.24, Culture=neutral">
       <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/MonoDevelop.MonoDroid/MonoDevelop.MonoDroid.dll</Package>
     </Reference>
@@ -73,6 +70,9 @@
     </Reference>
     <Reference Include="Xamarin.Ide, Version=1.0.0.0, Culture=neutral">
       <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/Xamarin.Ide/Xamarin.Ide.dll</Package>
+    </Reference>
+    <Reference Include="MonoDevelop.MacDev, Version=4.0.0.0, Culture=neutral">
+      <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/MonoDevelop.MacDev/MonoDevelop.MacDev.dll</Package>
     </Reference>
   </ItemGroup>
   <ItemGroup>

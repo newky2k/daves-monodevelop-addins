@@ -102,7 +102,7 @@ namespace DavesAddin.Processors
 							}
 
 						}
-						else if (proj is MonoDevelop.MacDev.MacProject || proj is MonoDevelop.MonoMac.MonoMacProject)
+						else if (proj is MonoDevelop.MonoMac.MonoMacProject)
 						{
 							var apVersion = new MacAppVersion ();
 
