@@ -68,8 +68,8 @@ namespace DavesAddin.Processors
 							}
 						}
 
-
-						if (proj.GetProjectTypes().Contains("IPhone"))
+						//GetProjectTypes().Contains("IPhone"
+						if (proj.ProjectType.Equals("IPhone"))
 						{
 							var apVersion = new iOSAppVersion ();
 
