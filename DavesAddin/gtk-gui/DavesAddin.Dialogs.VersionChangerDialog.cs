@@ -5,17 +5,29 @@ namespace DavesAddin.Dialogs
 	public partial class VersionChangerDialog
 	{
 		private global::Gtk.VBox vbox3;
+		
 		private global::Gtk.Frame grpFields;
+		
 		private global::Gtk.Alignment GtkAlignment2;
+		
 		private global::Gtk.Fixed frmFields;
+		
 		private global::Gtk.Entry edtSolVersion;
+		
 		private global::Gtk.Label label2;
+		
 		private global::Gtk.Entry edtiOSShort;
+		
 		private global::Gtk.Entry edtAndroidBuild;
+		
 		private global::Gtk.Label lblIOS;
+		
 		private global::Gtk.Label lblAndroid;
+		
 		private global::Gtk.Label GtkLabel2;
+		
 		private global::Gtk.Button buttonCancel;
+		
 		private global::Gtk.Button btnOk;
 
 		protected virtual void Build ()
@@ -168,6 +180,7 @@ namespace DavesAddin.Dialogs
 			this.DefaultHeight = 215;
 			this.Show ();
 			this.edtSolVersion.TextInserted += new global::Gtk.TextInsertedHandler (this.OnEdtSolVersionTextInserted);
+			this.edtSolVersion.Changed += new global::System.EventHandler (this.OnEdtSolVersionChanged);
 		}
 	}
 }

@@ -7,16 +7,16 @@
        description="Daves Addin.  Extensions for MonoDevelop/Xamarin Studio to improve productivity. Edit/Folding/Collapse to Definitions to collapse the source code(Ctrl-M-O). Solution > Update Versions to Update Soltuion, Project, AssemblyInfo, Android, iOS and Mac Application versions numbers in one go" 
        category="IDE extensions"
        url= "https://github.com/newky2k/daves-monodevelop-addins"
-       version="1.1" 
+       version="1.2" 
        flags="None">
 	<Runtime>	
 		<Import assembly="DavesAddin.dll" />
 	</Runtime>
     <Dependencies>
-		<Addin id="::MonoDevelop.Core" version="4.0" />
-		<Addin id="::MonoDevelop.Ide" version="4.0" />
-		<Addin id="::MonoDevelop.DesignerSupport" version="4.0" />
-		<Addin id="::MonoDevelop.SourceEditor2" version="4.0" />
+		<Addin id="::MonoDevelop.Core" version="5.0" />
+		<Addin id="::MonoDevelop.Ide" version="5.0" />
+		<Addin id="::MonoDevelop.DesignerSupport" version="5.0" />
+		<Addin id="::MonoDevelop.SourceEditor2" version="5.0" />
     </Dependencies>
 	<Extension path = "/MonoDevelop/Ide/Commands/Edit">  
         <Command id = "DavesAddin.CodeFoldingCommands.CollapseToDefs"  

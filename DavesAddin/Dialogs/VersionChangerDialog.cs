@@ -85,6 +85,29 @@ namespace DavesAddin.Dialogs
 
 			}
 		}
+
+		protected void OnEdtSolVersionChanged(object sender, EventArgs e)
+		{
+			Version outVersion;
+			if (!Version.TryParse (edtSolVersion.Text, out outVersion))
+			{
+				Console.WriteLine ("");
+			}
+			else
+			{
+				if (mVersionData.HasIOSProjects)
+				{
+					edtiOSShort.Text = CocoaAppVersion.ToShortVersion (outVersion);
+				}
+
+				if (mVersionData.HasAndroidProjects)
+				{
+					edtAndroidBuild.Text = AndroidAppVersion.ToBuild (outVersion);
+				}
+
+
+			}
+		}
 	}
 }
 

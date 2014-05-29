@@ -38,11 +38,20 @@ namespace DavesAddin.Data
 
 	public class CocoaAppVersion : AppVersion
 	{
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DavesAddin.Data.CocoaAppVersion"/> class.
+		/// </summary>
 		public CocoaAppVersion ()
 		{
 			ApplicationType = AppType.Cocoa;
 		}
+		#endregion
 
+		/// <summary>
+		/// Gets or sets the file path.
+		/// </summary>
+		/// <value>The file path.</value>
 		public override String FilePath { get; set; }
 
 		/// <summary>
@@ -75,6 +84,11 @@ namespace DavesAddin.Data
 			}
 		}
 
+		/// <summary>
+		/// Gets the version.
+		/// </summary>
+		/// <returns>The version.</returns>
+		/// <param name="Key">Key.</param>
 		public string GetVersion (String Key)
 		{
 			try
@@ -91,14 +105,26 @@ namespace DavesAddin.Data
 
 		}
 
+		/// <summary>
+		/// To short version.
+		/// </summary>
+		/// <returns>The short version.</returns>
+		/// <param name="CurrentVersion">Current version.</param>
 		public static string ToShortVersion (Version CurrentVersion)
 		{
-			var fir = CurrentVersion.Major.ToString ();
-			var th = CurrentVersion.Minor.ToString ();
-			var ap = CurrentVersion.Build.ToString ();
 			var qa = CurrentVersion.Revision.ToString ("D2");
 
-			return String.Format ("{0}.{1}.{2}{3}", fir, th, ap, qa);
+			var verString = CurrentVersion.ToString();
+			var its = verString.Split('.');
+
+			if (its.Length > 3)
+			{
+				//remove the last dot
+				var index = verString.LastIndexOf('.');
+				verString = verString.Remove(index);
+				verString = verString.Insert(index, qa);
+			}
+			return verString;
 		}
 
 		public override void Update ()
@@ -223,12 +249,44 @@ namespace DavesAddin.Data
 
 		public static string ToBuild (Version CurrentVersion)
 		{
-			var fir = CurrentVersion.Major.ToString ();
-			var th = CurrentVersion.Minor.ToString ();
-			var ap = CurrentVersion.Build.ToString ("D2");
-			var qa = CurrentVersion.Revision.ToString ("D2");
+			int[] ints = new int[]
+			{
+				CurrentVersion.Major,
+				CurrentVersion.Minor,
+				CurrentVersion.Build,
+				CurrentVersion.Revision,
+			};
+//			var fir = CurrentVersion.Major.ToString ();
+//			var th = CurrentVersion.Minor.ToString ();
+//			var ap = CurrentVersion.Build.ToString ("D2");
+//			var qa = CurrentVersion.Revision.ToString ("D2");
+//
+//			return String.Format ("{0}{1}{2}{3}", fir, th, ap, qa);
 
-			return String.Format ("{0}{1}{2}{3}", fir, th, ap, qa);
+			var verString = String.Empty;
+
+			foreach (var aInt in ints)
+			{
+				if (aInt > 0)
+				{
+					verString += aInt.ToString("D2");
+				}
+			}
+
+			return verString;
+//			var qa = CurrentVersion.Revision.ToString ("D2");
+//
+//			var verString = CurrentVersion.ToString();
+//			var its = verString.Split('.');
+//
+//			if (its.Length > 3)
+//			{
+//				//remove the last dot
+//				var index = verString.LastIndexOf('.');
+//				verString = verString.Remove(index);
+//				verString = verString.Insert(index, qa);
+//			}
+//			return verString;
 		}
 
 		public override void Update ()

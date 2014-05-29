@@ -47,6 +47,7 @@
                             <property name="IsEditable">True</property>
                             <property name="InvisibleChar">●</property>
                             <signal name="TextInserted" handler="OnEdtSolVersionTextInserted" />
+                            <signal name="Changed" handler="OnEdtSolVersionChanged" />
                           </widget>
                           <packing>
                             <property name="X">175</property>
