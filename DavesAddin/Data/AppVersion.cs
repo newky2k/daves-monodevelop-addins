@@ -256,13 +256,7 @@ namespace DavesAddin.Data
 				CurrentVersion.Build,
 				CurrentVersion.Revision,
 			};
-//			var fir = CurrentVersion.Major.ToString ();
-//			var th = CurrentVersion.Minor.ToString ();
-//			var ap = CurrentVersion.Build.ToString ("D2");
-//			var qa = CurrentVersion.Revision.ToString ("D2");
-//
-//			return String.Format ("{0}{1}{2}{3}", fir, th, ap, qa);
-
+				
 			var verString = String.Empty;
 
 			foreach (var aInt in ints)
@@ -274,19 +268,6 @@ namespace DavesAddin.Data
 			}
 
 			return verString;
-//			var qa = CurrentVersion.Revision.ToString ("D2");
-//
-//			var verString = CurrentVersion.ToString();
-//			var its = verString.Split('.');
-//
-//			if (its.Length > 3)
-//			{
-//				//remove the last dot
-//				var index = verString.LastIndexOf('.');
-//				verString = verString.Remove(index);
-//				verString = verString.Insert(index, qa);
-//			}
-//			return verString;
 		}
 
 		public override void Update ()
