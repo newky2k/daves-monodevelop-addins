@@ -86,8 +86,8 @@ namespace DavesAddin.Processors
 							}
 
 
-						}
-						else if (proj.GetProjectTypes().Contains("MonoDroid"))
+						}//else if (proj.GetProjectTypes().Contains("MonoDroid"))
+						else if (proj.ProjectType.Equals("MonoDroid"))
 						{
 							var apVersion = new AndroidAppVersion ();
 
@@ -102,8 +102,8 @@ namespace DavesAddin.Processors
 								newVersion.AppVerisonInfo = apVersion;
 							}
 
-						}
-						else if (proj.GetProjectTypes().Contains("Mac"))
+						}//proj.GetProjectTypes().Contains("Mac")
+						else if (proj.ProjectType.Equals("Mac"))
 						{
 							var apVersion = new MacAppVersion ();
 
