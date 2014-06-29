@@ -62,6 +62,9 @@
     <Reference Include="Xamarin.Ide, Version=1.0.0.0, Culture=neutral">
       <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/AddIns/Xamarin.Ide/Xamarin.Ide.dll</Package>
     </Reference>
+    <Reference Include="ICSharpCode.NRefactory.CSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49">
+      <Package>/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/bin/ICSharpCode.NRefactory.CSharp.dll</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="Data\PList.cs" />
     <Compile Include="Data\AssemblyVersionInfo.cs" />
     <Compile Include="Data\SolutionVersion.cs" />
+    <Compile Include="ExtractInterfaceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\DavesAddin.addin.xml" />

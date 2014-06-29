@@ -25,6 +25,13 @@
                  shortcut = "⌃M ⌃O"
                   defaultHandler = "DavesAddin.CodeFoldingHandler" />  
     </Extension> 
+	<Extension path = "/MonoDevelop/Ide/Commands">
+			<Category _name = "Code Navigation" id = "CodeNavigation">
+				<Command id = "DavesAddin.ExtractInterfaceCommands.ExtractInterface"
+								defaultHandler = "DavesAddin.ExtractInterfaceHandler"
+								_label = "Extract Interface" />
+			</Category>
+	</Extension>
 	<Extension path = "/MonoDevelop/Ide/Commands/Project">  
     <Command id = "DavesAddin.VersionChangerCommands.UpdateVersions"  
              _label = "Update Version"  
@@ -39,4 +46,12 @@
 			<CommandItem id ="DavesAddin.VersionChangerCommands.UpdateVersions" />
 		</Condition>
 	</Extension>  
+		
+<!--		<Extension path = "/MonoDevelop/AssemblyBrowser/TypeNode/ContextMenu">
+		<CommandItem id = "DavesAddin.ExtractInterfaceCommands.ExtractInterface" />
+		</Extension>-->
+
+		<Extension path = "/MonoDevelop/SourceEditor2/ContextMenu/Editor">
+		<CommandItem id = "DavesAddin.ExtractInterfaceCommands.ExtractInterface" insertbefore="MonoDevelop.SourceEditor.SourceEditorCommands.MarkerOperations"/>
+	   </Extension>
 </Addin>
