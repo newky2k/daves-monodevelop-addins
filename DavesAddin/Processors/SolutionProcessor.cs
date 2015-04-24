@@ -69,7 +69,9 @@ namespace DavesAddin.Processors
 						}
 
 						//GetProjectTypes().Contains("IPhone"
-						if (proj.ProjectType.Equals("IPhone"))
+						if (proj.ProjectType.Equals("IPhone") 
+							|| proj.ProjectType.ToLower().Equals("xamarinios")
+							|| proj.ProjectType.ToLower().Equals("monotouch"))
 						{
 							var apVersion = new iOSAppVersion ();
 
@@ -103,7 +105,8 @@ namespace DavesAddin.Processors
 							}
 
 						}//proj.GetProjectTypes().Contains("Mac")
-						else if (proj.ProjectType.Equals("Mac"))
+						else if (proj.ProjectType.Equals("Mac") 
+							|| proj.ProjectType.ToLower().Equals("xammac2"))
 						{
 							var apVersion = new MacAppVersion ();
 

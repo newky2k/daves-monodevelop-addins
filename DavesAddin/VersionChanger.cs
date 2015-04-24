@@ -5,6 +5,7 @@ using Mono.TextEditor;
 using DavesAddin.Processors;
 using System.Diagnostics;
 using DavesAddin.Dialogs;
+using Xwt;
 
 namespace DavesAddin
 {
@@ -17,6 +18,11 @@ namespace DavesAddin
 	{
 		protected override void Run ()
 		{
+
+			Xwt.Application.Initialize(Xwt.ToolkitType.Gtk);
+
+			var aItem = Xwt.Toolkit.CurrentEngine.WrapWindow(IdeApp.Workbench.RootWindow);
+
 			//var item = IdeApp.
 			var item = IdeApp.ProjectOperations.CurrentSelectedSolution;
 

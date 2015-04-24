@@ -15,6 +15,6 @@ Global
 		{822ABB71-1C84-442B-9347-341FAD978728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = DavesAddin\DavesAddin.csproj
+		version = 1.0
 	EndGlobalSection
 EndGlobal

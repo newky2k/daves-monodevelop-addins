@@ -3,6 +3,7 @@ using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
 using Mono.TextEditor;
 using MonoDevelop.Ide.Gui.Content;
+using MonoDevelop.SourceEditor;
 
 namespace DavesAddin
 {
@@ -18,9 +19,10 @@ namespace DavesAddin
 			//var item = IdeApp.
 			var item = IdeApp.Workbench.ActiveDocument;
 
+
 			if (item != null)
 			{
-				var editor = item.ActiveView.GetContent <IFoldable> () as MonoDevelop.SourceEditor.SourceEditorView;
+				var editor = item.ActiveView.GetContent <IFoldable> () as SourceEditorView;
 				var Document = item.Editor.Document;
 
 				foreach (FoldSegment segment in Document.FoldSegments)

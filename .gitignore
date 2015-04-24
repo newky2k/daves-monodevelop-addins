@@ -1,2 +1,4 @@
 
 *.userprefs
+obj/
+packages/
