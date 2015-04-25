@@ -14,6 +14,13 @@ The plugin currently provides the following extra functions
   
 **Release History**
 
+1.3  
+  
+ - Updated to work with Unified iOS and Unified Mac
+1.2  
+  
+  - Bug fixes
+
 1.1
 
 - Added "Update Versions" feature
