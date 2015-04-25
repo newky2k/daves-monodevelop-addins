@@ -16,7 +16,8 @@ The plugin currently provides the following extra functions
 
 1.3  
   
- - Updated to work with Unified iOS and Unified Mac
+ - Updated to work with Unified iOS and Unified Mac  
+  
 1.2  
   
   - Bug fixes
