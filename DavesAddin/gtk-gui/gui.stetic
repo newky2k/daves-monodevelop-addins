@@ -6,7 +6,6 @@
   </configuration>
   <import>
     <widget-library name="../bin/Debug/DavesAddin.dll" internal="true" />
-    <widget-library name="Mono.Addins.Gui, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
   </import>
   <widget class="Gtk.Dialog" id="DavesAddin.Dialogs.VersionChangerDialog" design-size="363 215">
     <property name="MemberName" />

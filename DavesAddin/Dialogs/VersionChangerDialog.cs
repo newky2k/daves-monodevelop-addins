@@ -34,6 +34,14 @@ namespace DavesAddin.Dialogs
 				lblIOS.Sensitive = true;
 
 			}
+			else if (VersionData.HasMacProjects)
+			{
+				edtiOSShort.Text = MacAppVersion.ToShortVersion(VersionData.Version);
+				edtiOSShort.Sensitive = true;
+				lblIOS.Sensitive = true;
+
+			} 
+
 
 			if (VersionData.HasAndroidProjects)
 			{
@@ -72,7 +80,7 @@ namespace DavesAddin.Dialogs
 			}
 			else
 			{
-				if (mVersionData.HasIOSProjects)
+				if (mVersionData.HasIOSProjects || mVersionData.HasMacProjects)
 				{
 					edtiOSShort.Text = CocoaAppVersion.ToShortVersion (outVersion);
 				}
@@ -95,7 +103,7 @@ namespace DavesAddin.Dialogs
 			}
 			else
 			{
-				if (mVersionData.HasIOSProjects)
+				if (mVersionData.HasIOSProjects || mVersionData.HasMacProjects)
 				{
 					edtiOSShort.Text = CocoaAppVersion.ToShortVersion (outVersion);
 				}

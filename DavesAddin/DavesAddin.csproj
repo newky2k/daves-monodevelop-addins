@@ -35,7 +35,6 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Mono.Addins" />
     <Reference Include="Mono.Cairo" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
@@ -43,12 +42,10 @@
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="Mono.Posix" />
-    <Reference Include="Mono.Addins.Gui, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VersionChanger.cs" />
-    <Compile Include="CodeFolderHandler.cs" />
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="Dialogs\VersionChangerDialog.cs" />
     <Compile Include="gtk-gui\DavesAddin.Dialogs.VersionChangerDialog.cs" />
@@ -58,7 +55,6 @@
     <Compile Include="Data\PList.cs" />
     <Compile Include="Data\AssemblyVersionInfo.cs" />
     <Compile Include="Data\SolutionVersion.cs" />
-    <Compile Include="ExtractInterfaceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\DavesAddin.addin.xml" />
@@ -76,6 +72,8 @@
   <ItemGroup>
     <AddinReference Include="MonoDevelop.SourceEditor2" />
     <AddinReference Include="MonoDevelop.DesignerSupport" />
+    <AddinReference Include="MonoDevelop.GtkCore" />
+    <AddinReference Include="MonoDevelop.MacPlatform" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

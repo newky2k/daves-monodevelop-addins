@@ -8,6 +8,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Collections.Generic;
 using MonoDevelop.Core.ProgressMonitoring;
+using MonoDevelop.Core;
 
 namespace DavesAddin.Processors
 {
@@ -68,60 +69,61 @@ namespace DavesAddin.Processors
 							}
 						}
 
-						//GetProjectTypes().Contains("IPhone"
-						if (proj.ProjectType.Equals("IPhone") 
-							|| proj.ProjectType.ToLower().Equals("xamarinios")
-							|| proj.ProjectType.ToLower().Equals("monotouch"))
+
+						var iOSTypes = new List<String>{ "{FEACFBD2-3405-455C-9665-78FE426C6842}","{EE2C853D-36AF-4FDB-B1AD-8E90477E2198}"};
+						var androidTypes = new List<String> { "{EFBA0AD7-5A72-4C68-AF49-83D382785DCF}","{10368E6C-D01B-4462-8E8B-01FC667A7035}"};
+						var macTypes = new List<String> { "{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1}", "{EE2C853D-36AF-4FDB-B1AD-8E90477E2198}" };
+
+						if (iOSTypes.Contains(proj.FlavorGuids.First()))
 						{
-							var apVersion = new iOSAppVersion ();
+							var iVersion = new iOSAppVersion();
 
-							//need to load the plist!
-							var infoPlistPath = Path.Combine (directory, "Info.Plist");
+							var infoPlist = proj.Files.FirstOrDefault(x => x.Name.ToLower().Contains("info.plist"));
 
-							if (File.Exists (infoPlistPath))
+							if (infoPlist != null)
 							{
-								apVersion.FilePath = infoPlistPath;
+								iVersion.FilePath = infoPlist.FilePath;
 
 								// only set if the info.plist exists
-								newVersion.AppVerisonInfo = apVersion;
+								newVersion.AppVerisonInfo = iVersion;
 								newVersion.ProjType = ProjectType.iOS;
 							}
+	
 
-
-						}//else if (proj.GetProjectTypes().Contains("MonoDroid"))
-						else if (proj.ProjectType.Equals("MonoDroid"))
+						}
+						else if (androidTypes.Contains(proj.FlavorGuids.First()))
 						{
-							var apVersion = new AndroidAppVersion ();
+							var aVersion = new AndroidAppVersion();
 
-							var manifestPath = Path.Combine (Path.Combine (directory, @"Properties"), "AndroidManifest.xml");
+							var manifest = proj.Files.FirstOrDefault(x => x.Name.ToLower().Contains("androidmanifest.xml"));
 
-							if (File.Exists (manifestPath))
+							if (manifest != null)
 							{
-								apVersion.FilePath = manifestPath;
+								aVersion.FilePath = manifest.FilePath;
 
 								//only set for the apps with a manifest
 								newVersion.ProjType = ProjectType.Android;
-								newVersion.AppVerisonInfo = apVersion;
+								newVersion.AppVerisonInfo = aVersion;
 							}
 
-						}//proj.GetProjectTypes().Contains("Mac")
-						else if (proj.ProjectType.Equals("Mac") 
-							|| proj.ProjectType.ToLower().Equals("xammac2"))
+						}
+						else if (macTypes.Contains(proj.FlavorGuids.First()))
 						{
-							var apVersion = new MacAppVersion ();
+							var apVersion = new MacAppVersion();
 
-							//need to load the plist!
-							var infoPlistPath = Path.Combine (directory, "Info.Plist");
+							var infoPlist = proj.Files.FirstOrDefault(x => x.Name.ToLower().Contains("info.plist"));
 
-							if (File.Exists (infoPlistPath))
+							if (infoPlist != null)
 							{
-								apVersion.FilePath = infoPlistPath;
+								apVersion.FilePath = infoPlist.FilePath;
 
 								// only set if the info.plist exists
 								newVersion.AppVerisonInfo = apVersion;
 								newVersion.ProjType = ProjectType.Mac;
 							}
+
 						}
+
 							
 						solVersion.Projects.Add (newVersion);
 					}
@@ -143,14 +145,15 @@ namespace DavesAddin.Processors
 		/// <param name="AdditionaVersions">Additiona versions.</param>
 		/// <param name="Data">Data.</param>
 		/// <param name="MainSolution">Main solution.</param>
-		public static void UpdateVersions (String MainVersion, Dictionary<String,String> AdditionaVersions, SolutionVersion Data, Solution MainSolution)
+		public async static void UpdateVersions (String MainVersion, Dictionary<String,String> AdditionaVersions, SolutionVersion Data, Solution MainSolution)
 		{
-			var aProgess = new SimpleProgressMonitor ();
+			
+			var aProgess = new ProgressMonitor();
 
 			if (MainSolution != null)
 			{
 				MainSolution.Version = MainVersion;
-				MainSolution.Save (aProgess);
+				await MainSolution.SaveAsync (aProgess);
 			}
 
 
@@ -164,7 +167,7 @@ namespace DavesAddin.Processors
 				foreach (var aProj in unsynceditems.ToList())
 				{
 					aProj.SourceProject.Version = MainVersion;
-					aProj.SourceProject.Save (aProgess);
+					await aProj.SourceProject.SaveAsync(aProgess);
 				}
 
 

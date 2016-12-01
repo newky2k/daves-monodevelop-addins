@@ -24,6 +24,18 @@ namespace DavesAddin.Data
 			}
 		}
 
+		public bool HasMacProjects
+		{
+			get
+			{
+				var items = from e in Projects
+							where e.ProjType.Equals(ProjectType.Mac)
+							select e;
+
+				return (items.ToList().Count > 0);
+			}
+		}
+
 		public bool HasAndroidProjects {
 			get
 			{

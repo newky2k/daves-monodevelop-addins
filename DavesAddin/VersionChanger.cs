@@ -21,7 +21,7 @@ namespace DavesAddin
 
 			Xwt.Application.Initialize(Xwt.ToolkitType.Gtk);
 
-			var aItem = Xwt.Toolkit.CurrentEngine.WrapWindow(IdeApp.Workbench.RootWindow);
+			//var aItem = Xwt.Toolkit.CurrentEngine.WrapWindow(IdeApp.Workbench.RootWindow);
 
 			//var item = IdeApp.
 			var item = IdeApp.ProjectOperations.CurrentSelectedSolution;
@@ -39,7 +39,7 @@ namespace DavesAddin
 				}
 				catch (Exception ex)
 				{
-					MessageService.ShowException (ex);
+					MessageService.ShowError ("", ex);
 				}
 
 
