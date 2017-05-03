@@ -1,23 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Addin name="Daves Extensions"
+<Addin name="Version Changer"
 		id="DavesAddin" 
        namespace="DavesAddin"
        author="Dave Humphreys" 
        copyright="Dave Humphreys" 
-       description="Daves Extensions.  Extensions for MonoDevelop/Xamarin Studio/VS for Mac to improve productivity. Edit/Folding/Collapse to Definitions to collapse the source code(Ctrl-M-O)(currently disabled due to SDK changes). Solution > Update Versions to Update Soltuion, Project, AssemblyInfo, Android, iOS and Mac Application versions numbers in one go" 
+       description="Formerly know as 'Daves Extensions'.  Extensions for MonoDevelop/Xamarin Studio/VS for Mac to improve productivity" 
        category="IDE extensions"
        url= "https://github.com/newky2k/daves-monodevelop-addins"
-       version="1.5" 
+       version="1.6" 
        flags="None">
 	<Runtime>	
 		<Import assembly="DavesAddin.dll" />
 	</Runtime>
-    <Dependencies>
-		<Addin id="::MonoDevelop.Core" version="7.0" />
-		<Addin id="::MonoDevelop.Ide" version="7.0" />
-		<Addin id="::MonoDevelop.DesignerSupport" version="7.0" />
-		<Addin id="::MonoDevelop.SourceEditor2" version="7.0" />
-    </Dependencies>
 <!--	<Extension path = "/MonoDevelop/Ide/Commands/Edit">  
         <Command id = "DavesAddin.CodeFoldingCommands.CollapseToDefs"  
                  _label = "Collapse to definitions"  

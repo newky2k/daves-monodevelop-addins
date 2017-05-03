@@ -1,7 +1,6 @@
 ﻿using System;
 using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
-using Mono.TextEditor;
 using DavesAddin.Processors;
 using System.Diagnostics;
 using DavesAddin.Dialogs;
@@ -19,7 +18,7 @@ namespace DavesAddin
 		protected override void Run ()
 		{
 
-			Xwt.Application.Initialize(Xwt.ToolkitType.Gtk);
+			Application.Initialize(Xwt.ToolkitType.Gtk);
 
 			//var aItem = Xwt.Toolkit.CurrentEngine.WrapWindow(IdeApp.Workbench.RootWindow);
 

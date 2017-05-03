@@ -1,11 +1,8 @@
 ﻿using System;
-using DavesAddin.Data;
-using MonoDevelop.Projects;
-using MonoDevelop.Core.ProgressMonitoring;
-using System.Threading.Tasks;
-using DavesAddin.Processors;
 using System.Collections.Generic;
-using Gdk;
+using DavesAddin.Data;
+using DavesAddin.Processors;
+using MonoDevelop.Projects;
 
 namespace DavesAddin.Dialogs
 {
